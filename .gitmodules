@@ -1,0 +1,12 @@
+[submodule "opt/zlib"]
+	path = opt/zlib
+	url = https://github.com/madler/zlib.git
+	branch = master
+[submodule "opt/openssl"]
+	path = opt/openssl
+	url = https://github.com/janbar/openssl-cmake.git
+	branch = master
+[submodule "opt/curl"]
+	path = opt/curl
+	url = https://github.com/curl/curl.git
+	branch = master
