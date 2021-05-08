@@ -21,3 +21,13 @@ nbproject/*
 .vscode
 cmake-build-*/
 .vs
+CMakeCache.txt
+CMakeFiles
+cmake_install.cmake
+deps
+build
+build_c
+build_u
+version/version_config.h
+_generate/
+nmake_build/
