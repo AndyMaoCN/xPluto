@@ -120,8 +120,8 @@ SSL_LIB_DIR=$(DEVEL_LIB)
 !ENDIF
 
 !IF "$(WITH_SSL)"=="dll" || "$(WITH_SSL)"=="static"
-!IF EXISTS("$(SSL_LIB_DIR)\libssl.lib")
-SSL_LIBS     = libssl.lib libcrypto.lib
+!IF EXISTS("$(SSL_LIB_DIR)\ssl-1_1-x64.lib")
+SSL_LIBS     = ssl-1_1-x64.lib crypto-1_1-x64.lib
 !ELSE
 SSL_LIBS     = libeay32.lib ssleay32.lib
 !ENDIF

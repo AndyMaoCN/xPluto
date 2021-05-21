@@ -33,3 +33,6 @@ _generate/
 nmake_build/
 dep/vs_*/
 dep/install/
+dep/curl/winbuild/CURL_OBJS.inc
+dep/curl/winbuild/LIBCURL_OBJS.inc
+dep/curl/winbuild/*.idb

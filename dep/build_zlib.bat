@@ -39,3 +39,9 @@ rem move ../bin ../vs_bin_release
 -DBUILD_SHARED_LIBS=on
 nmake /f Makefile
 nmake install
+
+rem make git happy
+cd ..
+cd zlib
+ren zconf.h.included zconf.h
+cd ..
