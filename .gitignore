@@ -31,3 +31,5 @@ build_u
 version/version_config.h
 _generate/
 nmake_build/
+dep/vs_*/
+dep/install/
