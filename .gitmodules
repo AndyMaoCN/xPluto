@@ -1,0 +1,8 @@
+[submodule "dep/openssl"]
+	path = dep/openssl
+	url = https://github.com/janbar/openssl-cmake.git
+	branch = master
+[submodule "dep/zlib"]
+	path = dep/zlib
+	url = https://github.com/madler/zlib.git
+	branch = master
