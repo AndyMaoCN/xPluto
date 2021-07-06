@@ -1,0 +1,39 @@
+129.204.255.182 饥荒-压测-c1 root / dHn%Q6RKJ@!X
+
+tar -jcvf /data/chatlog.tar.bz2 /data/chatlog
+
+
+
+scp root@129.204.255.182:/data/chatlog.tar.bz2 /D:/work/chatservice/log
+scp /D:/work/chatservice/log/chatservice.yaml root@129.204.255.182:/data/
+
+scp  /D:work/chatservice/gateserver user@ip:/path/
+
+
+docker pull harbor.corp.sdo.com/starve/chatservice:SL_0331_Alpha
+docker pull harbor.corp.sdo.com/starve/chatservice
+
+docker-compose -f chatservice.yaml down
+docker-compose -f chatservice.yaml up -d
+
+docker logs -f chatservice_chat
+
+docker logs chatservice_chat | grep error
+
+上传本地D盘文件a.txt到服务器的文件夹中
+scp  /D:/a.txt user@ip:/path/
+上传本地D盘文件夹a到服务器的文件夹中
+scp -r /D:/a user@ip:/path/
+下载服务器path路径下的文件a.txt 到本地D盘
+scp user@ip:/path/a.txt  /D:/path
+下载服务器path路径下的文件夹a到本地D盘
+scp -r user@ip:/path/a  /D:/path
+
+
+rm -f *_2021-03-25_*.log
+rm -f *_2021-04_*.log
+
+scp root@129.204.255.182:/data/chatlog/chatserver_2021-05-25_14.log /D:/work/chatservice/log
+
+
+nc -u -l -p 6667 & sleep 1; ./a.out

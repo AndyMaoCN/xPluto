@@ -1,0 +1,148 @@
+116.211.22.100
+Maojun@123
+
+tar -jcvf /mnt/d/Git/analysis_wetest.tar.bz2 /mnt/d/Git/analysis_wetest
+
+tar -jxvf analysis_wetest.tar.bz2 -C /home/maojun/
+
+scp -r /D:/Git/analysis_wetest maojun@116.211.22.100:/home/maojun/analysis_wetest
+
+scp -r maojun@116.211.22.100:/home/wetest_docker /D:/Git/wetest_docker 
+
+http://116.211.22.100:9273/register
+
+docker-compose -f wetest_server_cluster.yaml up -d
+docker run -p 23316:3306 --name mysql5.7_old --privileged=true -v /home/maojun/mysql_data:/var/lib/mysql -v /home/maojun/mysql_data/mysqld.cnf:/etc/mysql/mysql.conf.d/mysqld.cnf -v /home/maojun/mysql_log:/logs -e MYSQL_ROOT_PASSWORD=123456 -d mysql:5.7
+
+docker run -p 12001-12010:12001-12010 -itd -v /home/maojun/srv:/var/srv --name chat_srv harbor.corp.sdo.com/library/centos:7
+
+D:\work\chat_srv\dist\chat_srv.tar.bz2
+scp /D:/work/chat_srv/dist/chat_srv.tar.bz2 maojun@116.211.22.100:/home/maojun/chat_srv
+
+chat
+docker exec -it 9329ce bash
+http
+docker exec -it 12ad bash
+gate1
+docker exec -it 1fb79 bash
+gate2
+docker exec -it 3db52 bash
+gate3
+docker exec -it be8d6 bash
+gate4
+docker exec -it 841f6 bash
+
+docker run -p 13001:13001 -itd -v /home/maojun/srv:/var/srv --name chat_http harbor.corp.sdo.com/library/centos:7
+docker run -p 6379:6379 -itd --name chat_redis redis:latest
+docker run -p 12001:12001 -itd -v /home/maojun/srv:/var/srv --name chat_srv harbor.corp.sdo.com/library/centos:7
+docker run -p 12006:12006 -itd -v /home/maojun/srv:/var/srv --name chat_gate1 harbor.corp.sdo.com/library/centos:7
+docker run -p 12007:12007 -itd -v /home/maojun/srv:/var/srv --name chat_gate2 harbor.corp.sdo.com/library/centos:7
+docker run -p 12008:12008 -itd -v /home/maojun/srv:/var/srv --name chat_gate3 harbor.corp.sdo.com/library/centos:7
+docker run -p 12009:12009 -itd -v /home/maojun/srv:/var/srv --name chat_gate4 harbor.corp.sdo.com/library/centos:7
+
+
+docker run -p 5005:5005 -p 5555:5555 -itd -v /home/maojun/srv:/var/srv --name chat_robot_mgr harbor.corp.sdo.com/library/centos:7
+
+docker run -itd -v /home/maojun/srv:/var/srv --name chat_robot_1 harbor.corp.sdo.com/library/centos:7
+docker run -itd -v /home/maojun/srv:/var/srv --name chat_robot_2 harbor.corp.sdo.com/library/centos:7
+docker run -itd -v /home/maojun/srv:/var/srv --name chat_robot_3 harbor.corp.sdo.com/library/centos:7
+docker run -itd -v /home/maojun/srv:/var/srv --name chat_robot_4 harbor.corp.sdo.com/library/centos:7
+
+manager
+docker exec -it c3ca9 bash
+robot1
+docker exec -it 7a2b6 bash
+robot2
+docker exec -it 0d5da bash
+robot3
+docker exec -it 036c3 bash
+robot4
+docker exec -it f300b bash
+scp /D:/work/chat_srv/scripts/admin/logger.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/admin/logger.lua
+
+scp /D:/work/chat_srv/scripts/config/robot_wetest_cfg.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/config/robot_wetest_cfg.lua
+scp -r /D:/work/chat_srv/scripts/robot maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot
+scp -r /D:/work/chat_srv/scripts/robot_manager maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager
+
+scp /D:/work/chat_srv/src/luamod/golang_http/libhttpclient_golang.so maojun@116.211.22.100:/home/maojun/srv/chat_srv/src/luamod/golang_http/libhttpclient_golang.so
+
+scp /D:/work/chat_srv/src/luamod/golang_http/CMakeLists.txt maojun@116.211.22.100:/home/maojun/srv/chat_srv/src/luamod/golang_http/CMakeLists.txt
+scp /D:/work/chat_srv/src/luamod/golang_http/httpclient_golang.h maojun@116.211.22.100:/home/maojun/srv/chat_srv/src/luamod/golang_http/httpclient_golang.h
+
+scp /D:/work/chat_srv/src/luamod/golang_http/libhttpclient_golang.so maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/cbin/libhttpclient_golang.so
+scp -r /D:/httprequest_go maojun@116.211.22.100:/home/maojun/srv/httprequest_go
+
+docker-compose -f chat.yaml down
+docker-compose -f chat.yaml up -d
+
+http://116.211.22.100:5555/test_private_chat?robot_count=1000&start_id=3000&test_time=150
+http://116.211.22.100:5555/test_private_chat?robot_count=2000&start_id=3000&test_time=150
+http://116.211.22.100:5555/test_private_chat?robot_count=3000&start_id=3000&test_time=150
+
+http://116.211.22.100:5555/test_login?robot_count=1000&start_id=3000&test_time=120
+http://116.211.22.100:5555/test_login?robot_count=2000&start_id=3000&test_time=120
+http://116.211.22.100:5555/test_login?robot_count=3000&start_id=3000&test_time=120
+
+http://116.211.22.100:5555/test_global_chat?robot_count=1000&start_id=3000&test_time=120
+http://116.211.22.100:5555/test_global_chat?robot_count=2000&start_id=3000&test_time=120
+http://116.211.22.100:5555/test_global_chat?robot_count=3000&start_id=3000&test_time=120
+
+http://116.211.22.100:5555/test_channel_chat?robot_count=1000&start_id=3000&test_time=120
+http://116.211.22.100:5555/test_channel_chat?robot_count=2000&start_id=3000&test_time=120
+http://116.211.22.100:5555/test_channel_chat?robot_count=3000&start_id=3000&test_time=120
+
+
+docker run -p 80:80 -itd -v /home/maojun/www:/var/www --name dreamcast harbor.corp.sdo.com/library/centos:7
+docker exec -it 7c1066 bash
+
+
+scp /D:/work/chat_srv/scripts/http/http_pipe.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/http/http_pipe.lua
+scp /D:/work/chat_srv/scripts/logic/chat_rpc.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/logic/chat_rpc.lua
+
+
+scp /D:/work/chat_srv/scripts/robot/robot_mgr.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/robot_mgr.lua
+scp /D:/work/chat_srv/scripts/robot/robot.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/robot.lua
+scp /D:/work/chat_srv/scripts/robot/status.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/status.lua
+scp /D:/work/chat_srv/scripts/robot/main.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/main.lua
+scp /D:/work/chat_srv/scripts/robot_manager/http_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/http_server.lua
+scp /D:/work/chat_srv/scripts/config/chatproto/wetest.proto maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/config/chatproto/wetest.proto
+
+scp /D:/work/chat_srv/scripts/robot_manager/monitor_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/monitor_server.lua
+scp /D:/work/chat_srv/scripts/robot_manager/wetestmodule.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/wetestmodule.lua
+
+scp /D:/work/chat_srv/scripts/config/chatproto/server.proto maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/config/chatproto/server.proto
+
+
+scp /D:/work/chat_srv/scripts/robot/main.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/main.lua
+
+scp /D:/work/chat_srv/scripts/robot_manager/monitor_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/monitor_server.lua
+scp /D:/work/chat_srv/scripts/robot/monitor_client.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/monitor_client.lua
+
+scp /D:/work/chat_srv/scripts/robot_manager/main.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/main.lua
+
+
+
+scp /D:/work/chat_srv/scripts/gate/logic_pipe.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/gate/logic_pipe.lua
+scp /D:/work/chat_srv/scripts/gate/player.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/gate/player.lua
+scp /D:/work/chat_srv/scripts/logic/player.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/logic/player.lua
+scp /D:/work/chat_srv/scripts/logic/logic_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/logic/logic_server.lua
+
+
+
+scp /D:/work/chat_srv/scripts/robot/robot_mgr.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/robot_mgr.lua
+scp /D:/work/chat_srv/scripts/robot/robot.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/robot.lua
+scp /D:/work/chat_srv/scripts/robot/status.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot/status.lua
+scp /D:/work/chat_srv/scripts/robot_manager/wetestmodule.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/wetestmodule.lua
+scp /D:/work/chat_srv/scripts/config/chatproto/server.proto maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/config/chatproto/server.proto
+
+116.211.22.100:5555/test?robot_count=1000&test_type=7&test_time=120
+
+type 0 只测login    1 private 2 channel 4 global
+test_time秒
+
+scp /D:/work/chat_srv/scripts/http/http_pipe.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/http/http_pipe.lua
+scp /D:/work/chat_srv/scripts/logic/chat_rpc.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/logic/chat_rpc.lua
+scp /D:/work/chat_srv/scripts/logic/player.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/logic/player.lua
+scp /D:/work/chat_srv/scripts/logic/logic_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/logic/logic_server.lua
+scp /D:/work/chat_srv/scripts/robot_manager/http_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/http_server.lua
+scp /D:/work/chat_srv/scripts/robot_manager/wetestmodule.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/wetestmodule.lua
