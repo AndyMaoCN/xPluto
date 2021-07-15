@@ -18,3 +18,7 @@
 	path = opt/sol2
 	url = https://github.com/ThePhD/sol2.git
 	branch = develop
+[submodule "opt/hiredis"]
+	path = opt/hiredis
+	url = https://github.com/redis/hiredis.git
+	branch = master
