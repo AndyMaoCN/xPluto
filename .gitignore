@@ -37,3 +37,4 @@ dep/linux_build*/
 dep/curl/winbuild/CURL_OBJS.inc
 dep/curl/winbuild/LIBCURL_OBJS.inc
 dep/curl/winbuild/*.idb
+sam/asio/asio_test/x64/

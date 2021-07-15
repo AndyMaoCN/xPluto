@@ -6,3 +6,7 @@
 	path = dep/zlib
 	url = https://github.com/madler/zlib.git
 	branch = master
+[submodule "opt/asio"]
+	path = opt/asio
+	url = https://github.com/chriskohlhoff/asio.git
+	branch = master
