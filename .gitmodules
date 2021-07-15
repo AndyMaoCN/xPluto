@@ -10,3 +10,11 @@
 	path = opt/asio
 	url = https://github.com/chriskohlhoff/asio.git
 	branch = master
+[submodule "opt/lua"]
+	path = opt/lua
+	url = https://github.com/lua/lua.git
+	branch = master
+[submodule "opt/sol2"]
+	path = opt/sol2
+	url = https://github.com/ThePhD/sol2.git
+	branch = develop
