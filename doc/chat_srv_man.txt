@@ -58,6 +58,9 @@ robot3
 docker exec -it 036c3 bash
 robot4
 docker exec -it f300b bash
+robot5
+docker exec -it 726d bash
+
 scp /D:/work/chat_srv/scripts/admin/logger.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/admin/logger.lua
 
 scp /D:/work/chat_srv/scripts/config/robot_wetest_cfg.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/config/robot_wetest_cfg.lua
@@ -146,3 +149,15 @@ scp /D:/work/chat_srv/scripts/logic/player.lua maojun@116.211.22.100:/home/maoju
 scp /D:/work/chat_srv/scripts/logic/logic_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/logic/logic_server.lua
 scp /D:/work/chat_srv/scripts/robot_manager/http_server.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/http_server.lua
 scp /D:/work/chat_srv/scripts/robot_manager/wetestmodule.lua maojun@116.211.22.100:/home/maojun/srv/chat_srv/scripts/robot_manager/wetestmodule.lua
+
+
+docker run -p 80:80 -p 23306:3306 -itd -v /home/maojun/dr:/var/dr --name dreamcast harbor.corp.sdo.com/library/centos:7
+scp -r /D:/work/dreamcastserver/server/htdocs maojun@116.211.22.100:/home/maojun/dr
+
+
+docker run -p 80:80 -p 23306:3306 -itd -v /mnt/d/work/dreamcastserver/server/htdocs:/var/dr --name dreamcast harbor.corp.sdo.com/library/centos:7
+
+A random root password has been set. You will find it in '/root/.mysql_secret'.
+cat /root/.mysql_secret
+
+#0  0x00007f40ba59f728 in luaO_pushvfstring () from /var/srv/chat_srv/_generate/lib/centos/Release/lua54.so
