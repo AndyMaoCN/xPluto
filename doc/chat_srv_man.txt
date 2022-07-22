@@ -94,7 +94,7 @@ http://116.211.22.100:5555/test_channel_chat?robot_count=1000&start_id=3000&test
 http://116.211.22.100:5555/test_channel_chat?robot_count=2000&start_id=3000&test_time=120
 http://116.211.22.100:5555/test_channel_chat?robot_count=3000&start_id=3000&test_time=120
 
-
+libcurl4-openssl-dev (7.58.0-2ubuntu3.13)
 docker run -p 80:80 -itd -v /home/maojun/www:/var/www --name dreamcast harbor.corp.sdo.com/library/centos:7
 docker exec -it 7c1066 bash
 
@@ -161,3 +161,14 @@ A random root password has been set. You will find it in '/root/.mysql_secret'.
 cat /root/.mysql_secret
 
 #0  0x00007f40ba59f728 in luaO_pushvfstring () from /var/srv/chat_srv/_generate/lib/centos/Release/lua54.so
+
+docker pull harbor.corp.sdo.com/library/ubuntu@sha256:8d31dad0c58f552e890d68bbfb735588b6b820a46e459672d96e585871acc110
+docker run -itd -v /mnt/d/work/1804:/var/x --name ub1804 harbor.corp.sdo.com/library/ubuntu@sha256:8d31dad0c58f552e890d68bbfb735588b6b820a46e459672d96e585871acc110
+docker run -itd -v /mnt/d/work/2004:/var/x --name ub2004 harbor.corp.sdo.com/library/ubuntu:20.04
+
+vim /etc/profile
+export LD_LIBRARY_PATH=$LD_LIBRARY_PATH:/var/x/chat_srv/scripts/ubin:/var/x/chat_srv/scripts/ubin/luamod
+source /etc/profile
+
+objdump -x xxx.so | grep NEED
+dpkg -i <package.deb>

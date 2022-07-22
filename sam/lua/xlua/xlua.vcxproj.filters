@@ -16,6 +16,9 @@
     <Filter Include="lua">
       <UniqueIdentifier>{6a3d3313-8c54-4975-8313-0024b81002ae}</UniqueIdentifier>
     </Filter>
+    <Filter Include="hiredis">
+      <UniqueIdentifier>{7c71a9ad-3389-4625-a454-91317064a0eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="xlua.cpp">
@@ -117,6 +120,30 @@
     <ClCompile Include="lua\lzio.c">
       <Filter>lua</Filter>
     </ClCompile>
+    <ClCompile Include="hiredis\async.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis\dict.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis\hiredis.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis\net.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis\read.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis\sds.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="hiredis\sockcompat.c">
+      <Filter>hiredis</Filter>
+    </ClCompile>
+    <ClCompile Include="LuaContet.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lua\lapi.h">
@@ -199,6 +226,42 @@
     </ClInclude>
     <ClInclude Include="lua\lzio.h">
       <Filter>lua</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\async.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\async_private.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\dict.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\fmacros.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\hiredis.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\net.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\read.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\sds.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\sdsalloc.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\sockcompat.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="hiredis\win32.h">
+      <Filter>hiredis</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaContet.h">
+      <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

@@ -33,9 +33,11 @@ class test
 public:
 	test() {}
 	void init() {
-		post();
-		post2();
-		post3();
+		//post();
+		//post2();
+		//post3();
+		post4();
+		post5();
 		m_ioc.run();
 	}
 
@@ -65,6 +67,21 @@ public:
 		Parameter param(999);
 		asio::post(m_ioc, [=]() {
 			std::cout << "dealwith pos3(" << param.n << ")" << std::endl;
+		});
+	}
+	void post4() {
+		std::cout << "post4()" << std::endl;
+		auto capture = std::make_shared<Parameter>(9);
+		std::cout << "post4 before post (" << capture.use_count() << ")" << std::endl;
+		asio::post(m_ioc, [capture]() {
+			std::cout << "post4 cb(" << capture.use_count() << ")" << std::endl;
+		});
+		std::cout << "post4 after post (" << capture.use_count() << ")" << std::endl;
+	}
+	void post5() {
+		std::cout << "post5()" << std::endl;
+		asio::post(m_ioc, [capture = std::make_shared<Parameter>(10)]() {
+			std::cout << "post5 cb(" << capture.use_count() << ")" << std::endl;
 		});
 	}
 public:
