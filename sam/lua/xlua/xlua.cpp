@@ -8,8 +8,12 @@
 #include <string>
 #include <set>
 
+#include "LuaCoTest.h"
+
 int main()
 {
+	CoTest();
+/*
 	sol::state lua;
 
 	lua.set_function("f", []() {
@@ -30,4 +34,6 @@ int main()
 	sol_c_assert(v3 == "woof");
 
     std::cout << "Hello World!\n";
+	*/
+	return 0;
 }

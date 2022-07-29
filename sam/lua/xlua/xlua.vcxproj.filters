@@ -144,6 +144,9 @@
     <ClCompile Include="LuaContet.cpp">
       <Filter>源文件</Filter>
     </ClCompile>
+    <ClCompile Include="LuaCoTest.cpp">
+      <Filter>源文件</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="lua\lapi.h">
@@ -261,6 +264,12 @@
       <Filter>hiredis</Filter>
     </ClInclude>
     <ClInclude Include="LuaContet.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="lua_coroutine.h">
+      <Filter>源文件</Filter>
+    </ClInclude>
+    <ClInclude Include="LuaCoTest.h">
       <Filter>源文件</Filter>
     </ClInclude>
   </ItemGroup>
