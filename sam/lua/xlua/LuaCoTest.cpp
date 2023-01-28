@@ -6,8 +6,22 @@
 
 asio::io_context lua_context_;
 
+class JsonProxy {
+public:
+};
+
 int CoTest()
 {
+	std::thread::id id;
+	std::size_t t_id = std::hash<std::thread::id>()(id);
+	if (t_id == 5558979605539197941) {
+		std::cout << "id=" << id << ",hash_id=" << t_id << std::endl;
+	}
+/*	std::ostringstream oss;
+	oss << std::this_thread::get_id();
+	std::string stid = oss.str();
+	unsigned long long tid = std::stoull(stid);*/
+
 	auto work = asio::make_work_guard(lua_context_);
 
 	asio::signal_set singel(lua_context_, SIGINT, SIGTERM);
@@ -23,7 +37,7 @@ int CoTest()
 	const auto& co_lua_script = R"(
 function corun(co, tn)
 	print("co run.")
-	tn:Execute(function(n) print(n) end)
+	tn:Execute(function(n) print("cb:",n) end)
 	local n = tn:Execute()
 	print("co:", n)
 end
